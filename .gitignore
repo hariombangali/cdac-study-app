@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+build/
+.env
+.env.local
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# data/manifest.json is deliberately NOT ignored: lib/manifest.ts imports it at build
+# time, so the deployed build fails without it. Re-run `npm run manifest` and commit
+# whenever the vault gains files.
