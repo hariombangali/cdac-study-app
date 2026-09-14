@@ -12,3 +12,8 @@ next-env.d.ts
 # data/manifest.json is deliberately NOT ignored: lib/manifest.ts imports it at build
 # time, so the deployed build fails without it. Re-run `npm run manifest` and commit
 # whenever the vault gains files.
+.vercel
+.env*
+# ...but keep the tracked template so a fresh clone still has it, and so future
+# templates like .env.production.example are not silently swallowed.
+!.env*.example
