@@ -35,20 +35,20 @@ export function itemsFor(d: Day): Item[] {
     }));
   }
   const out: Item[] = [];
-  if (d.pdf?.length) out.push({ label: "Lecture PDF(s) padho", detail: d.pdf.join("\n") });
-  if (d.img?.length) out.push({ label: "Diagrams / images dekho", detail: d.img.join("\n") });
+  if (d.pdf?.length) out.push({ label: "Read lecture PDF(s)", detail: d.pdf.join("\n") });
+  if (d.img?.length) out.push({ label: "Review diagrams / images", detail: d.img.join("\n") });
   if (d.codeDir)
     out.push({
-      label: "Demo code memory se type karke run karo",
+      label: "Type demo code from memory and run it",
       dir: normPath(`${d.folder ?? ""}/${d.codeDir}`),
       filter: d.codeFilter,
     });
   if (d.extraDir)
-    out.push({ label: "Extra diagrams / notes dekho", dir: normPath(`${d.folder ?? ""}/${d.extraDir}`) });
-  if (d.extra?.length) out.push({ label: "Extra notes dekho", detail: d.extra.join("\n") });
-  if (d.mcq?.length) out.push({ label: "MCQ solve karo", detail: d.mcq.join("\n") });
-  if (d.poll?.length) out.push({ label: "POLL questions solve karo", detail: d.poll.join("\n") });
-  out.push({ label: "Apne shabdon me 3-line summary likho" });
+    out.push({ label: "Review extra diagrams / notes", dir: normPath(`${d.folder ?? ""}/${d.extraDir}`) });
+  if (d.extra?.length) out.push({ label: "Review extra notes", detail: d.extra.join("\n") });
+  if (d.mcq?.length) out.push({ label: "Solve MCQs", detail: d.mcq.join("\n") });
+  if (d.poll?.length) out.push({ label: "Solve POLL questions", detail: d.poll.join("\n") });
+  out.push({ label: "Write a 3-line summary in your own words" });
   return out;
 }
 

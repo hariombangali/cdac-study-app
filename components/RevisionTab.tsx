@@ -15,8 +15,8 @@ export default function RevisionTab() {
       <div className="card">
         <h2>Spaced revision queue</h2>
         <div className="sm mut">
-          Jab tum ek din ke saare tasks complete karte ho, uska revision {GAPS.join(" / ")} din baad
-          automatically queue me aa jata hai. Yahi cheez C-CAT me yaad rakhne ka asli reason hai.
+          When you complete all tasks for a day, revision gets queued {GAPS.join(" / ")} days later
+          automatically. This spaced repetition is the key to retaining everything for C-CAT.
         </div>
         <div className="grid g3" style={{ marginTop: 12 }}>
           <div className="kpi">
@@ -35,7 +35,7 @@ export default function RevisionTab() {
       </div>
 
       {rows.length === 0 ? (
-        <div className="empty">Revision queue khali hai. Din complete karo — queue khud bhar jayegi.</div>
+        <div className="empty">Revision queue is empty. Complete some days and the queue will fill up automatically.</div>
       ) : (
         <div className="card">
           <table>
@@ -51,7 +51,7 @@ export default function RevisionTab() {
             <tbody>
               {rows.map((r) => {
                 const cls = r.overdue ? "due" : daysBetween(today, r.due) <= 2 ? "soon" : "ok";
-                const label = r.overdue ? "OVERDUE" : r.due === today ? "AAJ" : nice(r.due);
+                const label = r.overdue ? "OVERDUE" : r.due === today ? "TODAY" : nice(r.due);
                 const key = revKey(r.day.id, r.gapIndex);
                 return (
                   <tr key={key}>

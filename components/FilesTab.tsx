@@ -35,13 +35,12 @@ export default function FilesTab() {
       <div className="card">
         <h2>Complete file index</h2>
         <div className="sm mut" style={{ marginBottom: 10 }}>
-          Vault ka <b>har ek file</b> — exact naam ke saath. Login hone par har naam clickable hai aur
-          file private storage se khulti hai (signed URL).
+          Every file in the vault — with exact names. After login, each name is clickable and opens the file from private storage (signed URL).
         </div>
         <div className="two" style={{ gap: 10 }}>
           <input
             className="search"
-            placeholder="kisi bhi file ka naam search karo…"
+            placeholder="Search for any file name…"
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -52,7 +51,7 @@ export default function FilesTab() {
       </div>
 
       {blocks.length === 0 ? (
-        <div className="empty">Kuch nahi mila — search clear karo.</div>
+        <div className="empty">No results found — try clearing your search.</div>
       ) : (
         blocks.map((b) => (
           <details className="wk fold-wrap" key={b.dir} open={Boolean(query) || Boolean(b.note)}>

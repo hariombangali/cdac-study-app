@@ -30,8 +30,7 @@ export default function WeakTab() {
     <div className="card">
       <h2>Weak topics / error log</h2>
       <div className="sm mut" style={{ marginBottom: 12 }}>
-        Jo topic 2 baar galat ho, woh yahan likho. Exam se pehle sirf ye list padhni hai. Har galti ke
-        saath <b>rule</b> likho, sirf topic naam nahi.
+        Log topics you got wrong more than once. Before the exam, review only this list. For each mistake, write the <b>rule</b>, not just the topic name.
       </div>
 
       <form className="row" onSubmit={submit}>
@@ -45,9 +44,9 @@ export default function WeakTab() {
           />
         </div>
         <div style={{ flex: "2 1 220px" }}>
-          <label className="f">Kya galti hui / rule</label>
+          <label className="f">What was the mistake / rule</label>
           <input
-            placeholder="e.g. int* +1 = 4 bytes aage badhta hai"
+            placeholder="e.g. int* +1 advances by 4 bytes"
             value={form.note}
             onChange={(e) => setForm({ ...form, note: e.target.value })}
           />
@@ -71,7 +70,7 @@ export default function WeakTab() {
       </form>
 
       {list.length === 0 ? (
-        <div className="empty">List khali hai — jaisi galtiyan milengi, yahan add karte jao.</div>
+        <div className="empty">List is empty — add mistakes as you find them.</div>
       ) : (
         list.map((w) => {
           const col =

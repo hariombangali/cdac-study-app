@@ -66,17 +66,17 @@ export default function LoginPage() {
           options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
         });
         if (error) throw error;
-        setInfo(`Login link ${email} pe bhej diya. Inbox (aur spam) check karo.`);
+        setInfo(`Login link sent to ${email}. Check your inbox (and spam folder).`);
         return;
       }
 
       /* ------------------------------------------------------ create account -- */
       if (signup) {
         if (password.length < MIN_PASSWORD) {
-          throw new Error(`Password kam se kam ${MIN_PASSWORD} characters ka hona chahiye.`);
+          throw new Error(`Password must be at least ${MIN_PASSWORD} characters.`);
         }
         if (password !== confirm) {
-          throw new Error("Dono passwords match nahi kar rahe.");
+          throw new Error("Passwords do not match.");
         }
         const { data, error } = await supabase.auth.signUp({
           email,
@@ -92,10 +92,10 @@ export default function LoginPage() {
         }
         if (data.user && (data.user.identities?.length ?? 0) === 0) {
           // Supabase returns a decoy user with no identities for an existing email.
-          throw new Error("Ye email already registered hai. Sign in karo, ya password reset karo.");
+          throw new Error("This email is already registered. Sign in or reset your password.");
         }
         setInfo(
-          "Account ban gaya. Supabase ne confirm link email pe bheja hai — us link pe click karne ke baad sign in karo. (Chaho to Supabase me Confirm email band kar do, phir signup turant ho jayega.)",
+          "Account created. Supabase sent a confirmation link to your email — click it to sign in. (You can disable email confirmation in Supabase for instant signup.)",
         );
         return;
       }
@@ -108,9 +108,9 @@ export default function LoginPage() {
       const msg = e instanceof Error ? e.message : String(e);
       setError(
         /invalid login credentials/i.test(msg)
-          ? "Email ya password galat hai."
+          ? "Invalid email or password."
           : /email not confirmed/i.test(msg)
-            ? "Pehle email confirm karo — jo link Supabase ne bheja tha."
+            ? "Please confirm your email first — use the link Supabase sent."
             : msg,
       );
     } finally {
@@ -122,7 +122,7 @@ export default function LoginPage() {
     setError(null);
     setInfo(null);
     if (!email) {
-      setError("Pehle email daalo, phir 'forgot password' dabao.");
+      setError("Enter your email first, then click 'forgot password'.");
       return;
     }
     setBusy(true);
@@ -131,7 +131,7 @@ export default function LoginPage() {
         redirectTo: `${window.location.origin}/auth/callback?next=/auth/reset`,
       });
       if (error) throw error;
-      setInfo(`Password reset link ${email} pe bhej diya.`);
+      setInfo(`Password reset link sent to ${email}.`);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -143,8 +143,7 @@ export default function LoginPage() {
     <div className="card" style={{ maxWidth: 480, margin: "70px auto" }}>
       <h1 style={{ marginBottom: 6 }}>CDAC C-CAT · Study Dashboard</h1>
       <p className="sm mut" style={{ marginBottom: 16 }}>
-        Pehli baar ho? <b>Create account</b> karo. Progress cloud me save hogi, to phone aur laptop
-        dono sync rahenge.
+        First time here? <b>Create an account</b>. Progress saves to the cloud, so your phone and laptop stay in sync.
       </p>
 
       <nav style={{ marginBottom: 16 }}>
@@ -183,7 +182,7 @@ export default function LoginPage() {
               autoComplete={signup ? "new-password" : "current-password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder={signup ? `kam se kam ${MIN_PASSWORD} characters` : "••••••••"}
+              placeholder={signup ? `at least ${MIN_PASSWORD} characters` : "••••••••"}
             />
 
             {signup ? (
@@ -197,7 +196,7 @@ export default function LoginPage() {
                   autoComplete="new-password"
                   value={confirm}
                   onChange={(e) => setConfirm(e.target.value)}
-                  placeholder="dobara likho"
+                  placeholder="retype password"
                 />
               </>
             ) : null}
@@ -225,9 +224,9 @@ export default function LoginPage() {
 
         <button className="act" type="submit" disabled={busy} style={{ marginTop: 16, width: "100%" }}>
           {busy
-            ? "Ruko…"
+            ? "Please wait…"
             : mode === "magic"
-              ? "Login link bhejo"
+              ? "Send login link"
               : signup
                 ? "Create account"
                 : "Sign in"}
@@ -238,7 +237,7 @@ export default function LoginPage() {
         {mode === "password" ? (
           <>
             <button className="ghost" type="button" onClick={() => switchTo("password", !signup)}>
-              {signup ? "Pehle se account hai — sign in" : "Naya account banao"}
+              {signup ? "Already have an account — sign in" : "Create a new account"}
             </button>
             {!signup ? (
               <button className="ghost" type="button" onClick={forgotPassword} disabled={busy}>
@@ -247,7 +246,7 @@ export default function LoginPage() {
             ) : null}
           </>
         ) : (
-          <span className="sm mut">Password yaad nahi? Password tab se reset kar lo.</span>
+          <span className="sm mut">Forgot password? Reset it from the Password tab.</span>
         )}
       </div>
 

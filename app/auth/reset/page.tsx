@@ -40,11 +40,11 @@ export default function ResetPage() {
     e.preventDefault();
     setError(null);
     if (password.length < MIN_PASSWORD) {
-      setError(`Password kam se kam ${MIN_PASSWORD} characters ka hona chahiye.`);
+      setError(`Password must be at least ${MIN_PASSWORD} characters.`);
       return;
     }
     if (password !== confirm) {
-      setError("Dono passwords match nahi kar rahe.");
+      setError("Passwords do not match.");
       return;
     }
     setBusy(true);
@@ -63,7 +63,7 @@ export default function ResetPage() {
   if (ready === null) {
     return (
       <div className="card" style={{ maxWidth: 460, margin: "80px auto" }}>
-        <h2>Check kar rahe hain…</h2>
+        <h2>Checking…</h2>
       </div>
     );
   }
@@ -71,9 +71,9 @@ export default function ResetPage() {
   if (!ready) {
     return (
       <div className="card" style={{ maxWidth: 460, margin: "80px auto" }}>
-        <h2>Link expire ho gaya</h2>
+        <h2>Link expired</h2>
         <p className="sm mut" style={{ marginTop: 8 }}>
-          Reset link sirf ek baar chalta hai aur jaldi expire hota hai. Naya link maango.
+          Reset links are single-use and expire quickly. Request a new one.
         </p>
         <p className="sm" style={{ marginTop: 14 }}>
           <Link href="/login">← Login page</Link>
@@ -84,7 +84,7 @@ export default function ResetPage() {
 
   return (
     <div className="card" style={{ maxWidth: 460, margin: "80px auto" }}>
-      <h2>Naya password set karo</h2>
+      <h2>Set new password</h2>
       {done ? (
         <div
           className="hint"
@@ -95,7 +95,7 @@ export default function ResetPage() {
             background: "rgba(46,204,143,.08)",
           }}
         >
-          Password badal gaya. Dashboard khol rahe hain…
+          Password changed. Opening dashboard…
         </div>
       ) : (
         <form onSubmit={submit}>
@@ -109,7 +109,7 @@ export default function ResetPage() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder={`kam se kam ${MIN_PASSWORD} characters`}
+            placeholder={`at least ${MIN_PASSWORD} characters`}
           />
           <label className="f" style={{ marginTop: 10 }}>
             Confirm password
@@ -120,7 +120,7 @@ export default function ResetPage() {
             autoComplete="new-password"
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}
-            placeholder="dobara likho"
+            placeholder="retype password"
           />
           {error ? (
             <div className="hint" style={{ marginTop: 12 }}>
@@ -128,7 +128,7 @@ export default function ResetPage() {
             </div>
           ) : null}
           <button className="act" type="submit" disabled={busy} style={{ marginTop: 16, width: "100%" }}>
-            {busy ? "Save kar rahe hain…" : "Password save karo"}
+            {busy ? "Saving…" : "Save password"}
           </button>
         </form>
       )}

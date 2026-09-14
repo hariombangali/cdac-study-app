@@ -11,10 +11,12 @@ import RevisionTab from "./RevisionTab";
 import MocksTab from "./MocksTab";
 import WeakTab from "./WeakTab";
 import FilesTab from "./FilesTab";
+import PomodoroTab from "./PomodoroTab";
 
 const TABS = [
   { id: "today", label: "Aaj" },
   { id: "plan", label: "8-Week Plan" },
+  { id: "pomodoro", label: "⏱ Pomodoro" },
   { id: "revision", label: "Revision Queue" },
   { id: "mocks", label: "Mock Log" },
   { id: "weak", label: "Weak Topics" },
@@ -30,9 +32,9 @@ export default function Dashboard() {
   if (status === "loading") {
     return (
       <div className="card" style={{ maxWidth: 520, margin: "80px auto", textAlign: "center" }}>
-        <h2>Progress load ho rahi hai…</h2>
+        <h2>Loading progress…</h2>
         <p className="sm mut" style={{ marginTop: 8 }}>
-          Supabase se tumhara data aa raha hai.
+          Fetching your data from Supabase.
         </p>
       </div>
     );
@@ -41,13 +43,13 @@ export default function Dashboard() {
   if (status === "error") {
     return (
       <div className="card" style={{ maxWidth: 620, margin: "80px auto" }}>
-        <h2>Data load nahi hua</h2>
+        <h2>Failed to load data</h2>
         <div className="hint" style={{ marginTop: 10 }}>
           ⚠️ {error}
         </div>
         <p className="sm mut" style={{ marginTop: 12 }}>
-          Check karo ki <code className="mono">supabase/schema.sql</code> chala hua hai aur{" "}
-          <code className="mono">.env.local</code> me sahi keys hain.
+          Check that <code className="mono">supabase/schema.sql</code> has been run and your{" "}
+          <code className="mono">.env.local</code> has the correct keys.
         </p>
       </div>
     );
@@ -71,7 +73,7 @@ export default function Dashboard() {
           <div className="count">
             <div>
               <b>{left >= 0 ? left : 0}</b>
-              <div className="sm mut">din bache</div>
+              <div className="sm mut">days left</div>
             </div>
             <div>
               <label className="f">Exam date</label>
@@ -98,7 +100,7 @@ export default function Dashboard() {
               <i style={{ width: `${prog.pct}%` }} />
             </div>
             <div className="sm mut" style={{ marginTop: 5 }}>
-              {prog.done} / {prog.total} tasks · {prog.daysDone} / {prog.daysTotal} din complete
+              {prog.done} / {prog.total} tasks · {prog.daysDone} / {prog.daysTotal} days complete
             </div>
           </div>
           <div className="two">
@@ -110,7 +112,7 @@ export default function Dashboard() {
               className="ghost"
               type="button"
               onClick={() => {
-                if (confirm("Saara progress delete ho jayega (cloud se bhi). Sure?")) void resetAll();
+                if (confirm("All progress will be deleted (including cloud). Are you sure?")) void resetAll();
               }}
             >
               Reset
@@ -121,8 +123,7 @@ export default function Dashboard() {
 
       {saveError ? (
         <div className="hint" style={{ marginBottom: 12 }}>
-          ⚠️ {saveError} — change local me dikha hai par cloud me save nahi hua. Internet/Supabase keys
-          check karo.
+          ⚠️ {saveError} — change is shown locally but not saved to cloud. Check your internet connection and Supabase keys.
         </div>
       ) : null}
 
@@ -142,6 +143,7 @@ export default function Dashboard() {
       <main>
         {tab === "today" ? <TodayTab /> : null}
         {tab === "plan" ? <PlanTab /> : null}
+        {tab === "pomodoro" ? <PomodoroTab /> : null}
         {tab === "revision" ? <RevisionTab /> : null}
         {tab === "mocks" ? <MocksTab /> : null}
         {tab === "weak" ? <WeakTab /> : null}

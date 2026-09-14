@@ -45,8 +45,7 @@ export default function MocksTab() {
     <div className="card">
       <h2>Mock test log</h2>
       <div className="sm mut" style={{ marginBottom: 12 }}>
-        Net score = (correct × 3) − (wrong × 1). Yehi C-CAT ka asli formula hai — guess tabhi jab 2
-        options eliminate ho jayein.
+        Net score = (correct × 3) − (wrong × 1). This is the actual C-CAT formula — only guess when you can eliminate 2 options.
       </div>
 
       <div className="grid g3" style={{ marginBottom: 14 }}>
@@ -59,7 +58,7 @@ export default function MocksTab() {
           <b>{attempted ? Math.round((correct / attempted) * 100) : 0}%</b>
         </div>
         <div className="kpi">
-          <span>Mocks diye</span>
+          <span>Mocks taken</span>
           <b>{mocks.length}</b>
         </div>
       </div>
@@ -113,7 +112,7 @@ export default function MocksTab() {
         <div style={{ flex: "2 1 180px" }}>
           <label className="f">Note</label>
           <input
-            placeholder="e.g. pointers me 4 galat"
+            placeholder="e.g. got 4 wrong in pointers"
             value={form.note}
             onChange={(e) => setForm({ ...form, note: e.target.value })}
           />
@@ -129,7 +128,7 @@ export default function MocksTab() {
       </form>
 
       {mocks.length === 0 ? (
-        <div className="empty">Abhi koi mock nahi. Week 8 (Nov 6–7) me 2 mock dene hain.</div>
+        <div className="empty">No mocks yet. Take 2 mocks in Week 8 (Nov 6–7).</div>
       ) : (
         <table>
           <thead>

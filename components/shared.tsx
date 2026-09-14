@@ -13,7 +13,7 @@ export function FileLink({ path, label }: { path: string; label?: string }) {
   const name = label ?? fileName(path);
   if (!exists(path)) {
     return (
-      <span className="miss" title="ye file manifest me nahi hai">
+      <span className="miss" title="this file is not in the manifest">
         {name} ⚠
       </span>
     );
@@ -32,7 +32,7 @@ export function FileLink({ path, label }: { path: string; label?: string }) {
 
 export function FileChips({ dir, filter }: { dir: string; filter?: string }) {
   const files = dirFiles(dir, filter);
-  if (!files.length) return <span className="plain sm">(is folder me koi file nahi mili)</span>;
+  if (!files.length) return <span className="plain sm">(no files found in this folder)</span>;
   return (
     <span className="chips">
       {files.map((f) => (
@@ -147,7 +147,7 @@ export function FolderBlock({ day }: { day: Day }) {
 
   return (
     <details className="doc" style={{ marginTop: 10 }}>
-      <summary>📂 is din ke saare files ({total})</summary>
+      <summary>📂 all files for this day ({total})</summary>
       <div style={{ marginTop: 7 }}>
         {dirs.map((k) => {
           const rel = k === folder ? "" : k.slice(folder.length + 1);
@@ -202,7 +202,7 @@ export function DayCard({ day, isToday }: { day: Day; isToday?: boolean }) {
             type="button"
             onClick={() => setManyChecks(items.map((_, i) => itemKey(day.id, i)), !all)}
           >
-            {all ? "Clear" : "Sab tick"}
+            {all ? "Clear" : "Check all"}
           </button>
         </div>
       </div>

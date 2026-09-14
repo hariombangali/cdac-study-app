@@ -23,10 +23,9 @@ export default function TodayTab() {
     <>
       {today < days[0].date ? (
         <div className="card today">
-          <b>Plan kal se shuru hota hai — {nice(days[0].date)}</b>
+          <b>Plan starts tomorrow — {nice(days[0].date)}</b>
           <div className="sm mut" style={{ marginTop: 4 }}>
-            Aaj material ready karke rakh lo: folders check karo, VSCode + gcc set karo, aur neend
-            poori lo 😄
+            Get your material ready today: check folders, set up VSCode + gcc, and get some rest 😄
           </div>
         </div>
       ) : null}
@@ -35,11 +34,11 @@ export default function TodayTab() {
         <div className="card today">
           <div className="two" style={{ justifyContent: "space-between" }}>
             <h2>
-              Aaj ka focus — {day.dow} {nice(day.date)}
+              Today's focus — {day.dow} {nice(day.date)}
             </h2>
             {!exact ? (
               <span className="sm mut">
-                {next ? "Aaj plan me koi din nahi hai. Agla din:" : "Plan khatam. Aakhri din:"}
+                {next ? "No study day scheduled today. Next day:" : "Plan finished. Last day:"}
               </span>
             ) : null}
           </div>
@@ -91,8 +90,7 @@ export default function TodayTab() {
             ))
           ) : (
             <div className="empty">
-              Koi revision due nahi. Ek din complete karo, phir yahan +1/+3/+7/+21 din ke revision aa
-              jayenge.
+              No revisions due yet. Complete a day's tasks and your +1/+3/+7/+21 day revisions will appear here.
             </div>
           )}
         </div>
@@ -108,7 +106,7 @@ export default function TodayTab() {
               </div>
             ))
           ) : (
-            <div className="empty">Zero backlog. Shabaash 👏</div>
+            <div className="empty">Zero backlog. Great job 👏</div>
           )}
         </div>
       </div>

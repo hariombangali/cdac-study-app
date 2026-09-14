@@ -1,9 +1,9 @@
 export default function SetupNotice() {
   return (
     <div className="card" style={{ maxWidth: 760, margin: "60px auto" }}>
-      <h2>Supabase setup baaki hai</h2>
+      <h2>Supabase setup required</h2>
       <p className="sm mut" style={{ marginTop: 8 }}>
-        App ko chalane ke liye Supabase project chahiye. Steps:
+        A Supabase project is needed to run the app. Steps:
       </p>
 
       <ol className="sm" style={{ margin: "12px 0 0 20px", lineHeight: 1.9 }}>
@@ -11,38 +11,33 @@ export default function SetupNotice() {
           <a href="https://supabase.com/dashboard" target="_blank" rel="noopener">
             supabase.com/dashboard
           </a>{" "}
-          pe free project banao
+          to create a free project
         </li>
         <li>
-          <b>SQL Editor</b> me <code className="mono">supabase/schema.sql</code> paste karke{" "}
-          <b>Run</b> karo — ye pehle karna zaroori hai (tables + private storage bucket isse bante
-          hain)
+          Paste <code className="mono">supabase/schema.sql</code> into the <b>SQL Editor</b> and click <b>Run</b> — this must be done first (creates tables + private storage bucket)
         </li>
         <li>
-          Project Settings → <b>API Keys</b> (alag “API” page ab nahi hai). Project URL bhi wahi
-          milta hai
+          Project Settings → <b>API Keys</b> (there's no separate "API" page anymore). Project URL is found there too
         </li>
         <li>
-          Do keys chahiye — <b>public</b> (publishable <code className="mono">sb_publishable_…</code>{" "}
-          ya legacy anon <code className="mono">eyJ…</code>) aur <b>secret</b> (secret{" "}
-          <code className="mono">sb_secret_…</code> ya legacy service_role{" "}
+          Two keys needed — <b>public</b> (publishable <code className="mono">sb_publishable_…</code>{" "}
+          or legacy anon <code className="mono">eyJ…</code>) and <b>secret</b> (secret{" "}
+          <code className="mono">sb_secret_…</code> or legacy service_role{" "}
           <code className="mono">eyJ…</code>)
         </li>
         <li>
-          Teen values <code className="mono">.env.local</code> me daalo (file ready hai — sirf{" "}
-          <code className="mono">=</code> ke baad values likhni hain)
+          Put three values in <code className="mono">.env.local</code> (file is ready — just add values after the <code className="mono">=</code> signs)
         </li>
         <li>
-          Phir ek command: <code className="mono">npm run setup</code> — ye credentials check karke,
-          manifest banake, files upload karke, poora backend verify kar dega
+          Then run: <code className="mono">npm run setup</code> — this verifies credentials, builds the manifest, uploads files, and validates the full backend
         </li>
         <li>
-          <code className="mono">npm run dev</code> chalao aur email + password se account banao
+          Run <code className="mono">npm run dev</code> and create an account with email + password
         </li>
       </ol>
 
       <p className="sm mut" style={{ marginTop: 14 }}>
-        Detail <code className="mono">README.md</code> me hai.
+        Detailed instructions are in <code className="mono">README.md</code>.
       </p>
     </div>
   );
