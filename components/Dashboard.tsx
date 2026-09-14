@@ -6,7 +6,7 @@ import { overallProgress } from "@/lib/progress";
 import { daysBetween, nice, todayStr } from "@/lib/dates";
 import { TOTAL_FILES, TOTAL_FOLDERS } from "@/lib/manifest";
 import TodayTab from "./TodayTab";
-import PlanTab from "./PlanTab";
+import SubjectManager from "./SubjectManager";
 import RevisionTab from "./RevisionTab";
 import MocksTab from "./MocksTab";
 import WeakTab from "./WeakTab";
@@ -15,7 +15,7 @@ import PomodoroTab from "./PomodoroTab";
 
 const TABS = [
   { id: "today", label: "Aaj" },
-  { id: "plan", label: "8-Week Plan" },
+  { id: "subjects", label: "📚 Subjects" },
   { id: "pomodoro", label: "⏱ Pomodoro" },
   { id: "revision", label: "Revision Queue" },
   { id: "mocks", label: "Mock Log" },
@@ -142,7 +142,7 @@ export default function Dashboard() {
 
       <main>
         {tab === "today" ? <TodayTab /> : null}
-        {tab === "plan" ? <PlanTab /> : null}
+        {tab === "subjects" ? <SubjectManager /> : null}
         {tab === "pomodoro" ? <PomodoroTab /> : null}
         {tab === "revision" ? <RevisionTab /> : null}
         {tab === "mocks" ? <MocksTab /> : null}
