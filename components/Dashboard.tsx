@@ -14,7 +14,7 @@ import FilesTab from "./FilesTab";
 import PomodoroTab from "./PomodoroTab";
 
 const TABS = [
-  { id: "today", label: "Aaj" },
+  { id: "today", label: "Today" },
   { id: "subjects", label: "📚 Subjects" },
   { id: "pomodoro", label: "⏱ Pomodoro" },
   { id: "revision", label: "Revision Queue" },

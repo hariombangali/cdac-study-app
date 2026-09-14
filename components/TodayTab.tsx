@@ -75,9 +75,9 @@ export default function TodayTab() {
               >
                 <span className="sm">
                   <span className={`pill ${r.overdue ? "due" : "soon"}`}>
-                    {r.overdue ? "OVERDUE" : "AAJ"}
+                    {r.overdue ? "OVERDUE" : "TODAY"}
                   </span>{" "}
-                  {r.day.topic} <span className="mut">(+{r.gap} din revision)</span>
+                  {r.day.topic} <span className="mut">(+{r.gap} day revision)</span>
                 </span>
                 <button
                   className="ghost"
@@ -124,7 +124,7 @@ export default function TodayTab() {
                   <i style={{ width: `${pct}%` }} />
                 </div>
                 <div className="sm mut" style={{ marginTop: 4 }}>
-                  {s.daysDone}/{s.days} din
+                  {s.daysDone}/{s.days} days
                 </div>
               </div>
             );

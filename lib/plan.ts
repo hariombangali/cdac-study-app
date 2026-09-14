@@ -37,7 +37,7 @@ export const PLAN: Week[] = [
   pdf:["Day7.pdf","Day8.pdf","Diagram_CProg_Day5_Part1.pdf","Diagram_CProg_Day5_Part2.pdf"],
   codeDir:"code",
   mcq:["../MCQ/Day05_MCQ.pdf"],poll:["../POLL/Day05_POll_Questions.pdf"]},
- {id:"w1d6",dow:"Sat",date:"2026-09-19",subject:"Practice",topic:"Week-1 revision + Aptitude Day 1",
+ {id:"w1d6",dow:"Sat",date:"2026-09-19",subject:"Aptitude",topic:"Week-1 revision + Aptitude Day 1",
   folder:"suneam apptitude/Aptitude/Day_01",
   tasks:[
    {label:"Rewrite all Week 1 demo .c files from memory and run them",dirs:["C_Programming_ClassWork/CProgramming/Day1/code","C_Programming_ClassWork/CProgramming/Day2/code","C_Programming_ClassWork/CProgramming/Day3/code","C_Programming_ClassWork/CProgramming/Day4/code","C_Programming_ClassWork/CProgramming/Day5/code"]},
@@ -78,7 +78,7 @@ export const PLAN: Week[] = [
   pdf:["Day13.pdf","Diagram_CProg_Day10.pdf"],
   mcq:["../MCQ/Day10_MCQ.pdf"],poll:["../POLL/Day10_POll_Questions.pdf"],
   hint:"No code/ folder today — write your own programs. Pointers = highest marks topic."},
- {id:"w2d6",dow:"Sat",date:"2026-09-26",subject:"Practice",topic:"Aptitude Day 2 + ab tak ke quiz",
+ {id:"w2d6",dow:"Sat",date:"2026-09-26",subject:"Aptitude",topic:"Aptitude Day 2 + ab tak ke quiz",
   folder:"suneam apptitude/Aptitude/Day_02",
   tasks:[
    {label:"Read Apti_Day02.pdf",detail:"suneam apptitude/Aptitude/Day_02/Apti_Day02.pdf"},
@@ -121,7 +121,7 @@ export const PLAN: Week[] = [
   pdf:["Day2_1.pdf","Day2_2.pdf"],
   extraDir:"diagrams",
   mcq:["../MCQ/Day02_MCQ.pdf"],poll:["../Poll_Questions/Day02_POll_Questions.pdf"]},
- {id:"w3d6",dow:"Sat",date:"2026-10-03",subject:"Practice",topic:"Aptitude Day 3 + poll questions",
+ {id:"w3d6",dow:"Sat",date:"2026-10-03",subject:"Aptitude",topic:"Aptitude Day 3 + poll questions",
   folder:"suneam apptitude/Aptitude/Day_03",
   tasks:[
    {label:"Read Apti_Day03.pdf",detail:"suneam apptitude/Aptitude/Day_03/Apti_Day03.pdf"},
@@ -162,7 +162,7 @@ export const PLAN: Week[] = [
   codeDir:".",codeFilter:"demo",
   mcq:["Day02_MCQ.pdf"],poll:["Day02_POll_Questions.pdf","Day03_POll_Questions.pdf"],
   note:"Complete Assignment_2.txt."},
- {id:"w4d6",dow:"Sat",date:"2026-10-10",subject:"Practice",topic:"Aptitude Day 4 + DS quiz",
+ {id:"w4d6",dow:"Sat",date:"2026-10-10",subject:"Aptitude",topic:"Aptitude Day 4 + DS quiz",
   folder:"suneam apptitude/Aptitude/Day_04",
   tasks:[
    {label:"Read Apti_Day04.pdf",detail:"suneam apptitude/Aptitude/Day_04/Apti_Day04.pdf"},
@@ -205,7 +205,7 @@ export const PLAN: Week[] = [
   pdf:["Day-2.pdf","classwork.pdf"],
   mcq:["Day01_MCQ.pdf"],poll:["Day01_POll_Questions.pdf"],
   note:"Memorize the process state diagram — this is guaranteed to appear in the exam."},
- {id:"w5d6",dow:"Sat",date:"2026-10-17",subject:"Practice",topic:"Aptitude Day 5 + C/C++ MCQ revise",
+ {id:"w5d6",dow:"Sat",date:"2026-10-17",subject:"Aptitude",topic:"Aptitude Day 5 + C/C++ MCQ revise",
   folder:"suneam apptitude/Aptitude/Day_05",
   tasks:[
    {label:"Read Apti_Day05.pdf",detail:"suneam apptitude/Aptitude/Day_05/Apti_Day05.pdf"},
@@ -244,7 +244,7 @@ export const PLAN: Week[] = [
   pdf:["DCN_Day01.pdf","Day01_Notes.pdf"],
   mcq:["../MCQs/Day01_MCQ.pdf"],poll:["../Poll_Questions/Day01_POll_Questions.pdf"],
   hint:"OSI 7 layers + protocols for each layer — this just has to be memorized."},
- {id:"w6d6",dow:"Sat",date:"2026-10-24",subject:"Practice",topic:"Aptitude Day 6 (English) + DCN MCQs",
+ {id:"w6d6",dow:"Sat",date:"2026-10-24",subject:"Aptitude",topic:"Aptitude Day 6 (English) + DCN MCQs",
   folder:"suneam apptitude/Aptitude/Day_06",
   tasks:[
    {label:"Read Apti_Day06.pdf and Apti_Day06_English.pdf",detail:"suneam apptitude/Aptitude/Day_06/Apti_Day06.pdf\nsuneam apptitude/Aptitude/Day_06/Apti_Day06_English.pdf"},
@@ -277,7 +277,7 @@ export const PLAN: Week[] = [
   folder:"sunbeam bigdata/BigData/day3",
   pdf:["DataEngg-Day3.pdf"],
   mcq:["Day03_MCQ.pdf"],poll:["Day03_POll_Questions.pdf"]},
- {id:"w7d6",dow:"Sat",date:"2026-10-31",subject:"Practice",topic:"Aptitude Day 7 (Reasoning) + BigData MCQs",
+ {id:"w7d6",dow:"Sat",date:"2026-10-31",subject:"Aptitude",topic:"Aptitude Day 7 (Reasoning) + BigData MCQs",
   folder:"suneam apptitude/Aptitude/Day_07",
   tasks:[
    {label:"Read Apti_Day07_Reasoning.pdf",detail:"suneam apptitude/Aptitude/Day_07/Apti_Day07_Reasoning.pdf"},
